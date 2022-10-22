@@ -1,13 +1,13 @@
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
+#       pivot should not be considered in sum
         leftsum = 0
         total = sum(nums)
-        n = len(nums)
         
-        for i in range(n):
-            if leftsum==total-leftsum-nums[i]:
+        for i,v in enumerate(nums):
+            if leftsum==total-leftsum-v:
                 return i
             else:
-                leftsum+=nums[i]
+                leftsum+=v
             
         return -1
