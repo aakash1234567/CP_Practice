@@ -4,14 +4,14 @@ class Solution:
 	def print2largest(self,arr, n):
 		# code here
 		mx = arr[0]
-		for i in range(n):
-		    mx = max(mx, arr[i])
-
 		fmx = -1
 		for i in range(n):
-		    if arr[i] != mx:
-		        fmx = max(fmx, arr[i])
-		        
+		    if arr[i] > mx:
+		        fmx = mx
+		        mx = arr[i]
+		    elif arr[i] > fmx and arr[i] != mx:
+		        fmx = arr[i]
+		    
 		return fmx
 
 #{ 
