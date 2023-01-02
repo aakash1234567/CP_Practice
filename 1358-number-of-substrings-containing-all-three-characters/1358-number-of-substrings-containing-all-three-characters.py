@@ -9,6 +9,5 @@ class Solution:
                 b=i
             else:
                 c=i
-            if i>1:
-                cnt += min([a,b,c])+1
+            cnt += min([a,b,c])+1
         return cnt
