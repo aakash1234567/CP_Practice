@@ -3,13 +3,10 @@
 class Solution():
     def solve(self, N, A):
         #your code here
-         
-        ans = N
+        
         for i in range(N-1,-1,-1):
             if 1+A[i]<=9:
-                ans = i+1
-                break
-        return ans
+                return i+1
 
 #{ 
  # Driver Code Starts
