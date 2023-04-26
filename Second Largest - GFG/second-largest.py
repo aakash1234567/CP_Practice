@@ -4,15 +4,16 @@ class Solution:
 	def print2largest(self,arr, n):
 		# code here
 		mx = arr[0]
-		fmx = -1
-		for i in range(n):
-		    if arr[i] > mx:
-		        fmx = mx
-		        mx = arr[i]
-		    elif arr[i] > fmx and arr[i] != mx:
-		        fmx = arr[i]
-		    
-		return fmx
+		smx = -1
+		
+		for i in range(1,n):
+		    if arr[i]>mx:
+		        smx=mx
+		        mx=arr[i]
+		    if arr[i]>smx and arr[i]!=mx:
+		        smx=arr[i]
+		        
+		return smx
 
 #{ 
  # Driver Code Starts
