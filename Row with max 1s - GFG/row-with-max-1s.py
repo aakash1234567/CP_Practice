@@ -3,11 +3,28 @@ class Solution:
 
 	def rowWithMax1s(self,arr, n, m):
 		# code here
-        for i in range(m):
-            for j in range(n):
-                if arr[j][i]==1:
-                    return j
-        return -1
+		
+		def search(index,start,end):
+		    ans=-1
+		    while start<=end:
+		        mid = (end+start)//2
+                if arr[index][mid]==1:
+                    ans=mid
+                    end=mid-1
+                else:
+                    start=mid+1
+            return ans
+        mx = -1
+        ind = -1
+        for i in range(n):
+            t = search(i,0,m-1)
+            if t!=-1:
+                if mx < m-t:
+                    mx = m-t
+                    ind = i
+            if mx == m:
+                break
+        return ind
 
 #{ 
  # Driver Code Starts
