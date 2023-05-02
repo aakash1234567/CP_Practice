@@ -2,16 +2,16 @@
 class Solution:
 	def subsetSums(self, arr, N):
 		# code here
-        def recur(ind, sm, ans):
+        def recur(ind, sm):
             if ind==N:
                 ans.append(sm)
                 return
-            recur(ind+1,sm+arr[ind], ans)
+            recur(ind+1,sm+arr[ind])
             
-            recur(ind+1, sm, ans)
+            recur(ind+1, sm)
         
         ans = []
-        recur(0, 0, ans)
+        recur(0, 0)
         return ans
 
 #{ 
