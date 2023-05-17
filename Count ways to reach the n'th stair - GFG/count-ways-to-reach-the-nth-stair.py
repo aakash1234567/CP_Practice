@@ -24,13 +24,22 @@ class Solution:
         #     return dp[ind]
         # return recur(n)
         
-        dp = [-1 for i in range(n+1)]
-        dp[0] = 1
-        dp[1] = 1
-        for i in range(2,n+1):
-            dp[i] = dp[i-1]+dp[i-2]
+        # dp = [-1 for i in range(n+1)]
+        # dp[0] = 1
+        # dp[1] = 1
+        # for i in range(2,n+1):
+        #     dp[i] = dp[i-1]+dp[i-2]
         
-        return dp[n]%(10**9+7)
+        # return dp[n]%(10**9+7)
+        ans = 1        
+        prev1 = 1
+        prev2 = 1
+        for i in range(2,n+1):
+            ans = prev1+prev2
+            prev2 = prev1
+            prev1 = ans
+        
+        return ans%(10**9+7)
 
 
 #{ 
