@@ -31,16 +31,28 @@ class Solution:
     #     return recur(n-1)
     
         
-        dp = [-1 for i in range(n)]
-        dp[0] = arr[0]
+        # dp = [-1 for i in range(n)]
+        # dp[0] = arr[0]
         
+        # for ind in range(1,n):
+        #     pick = arr[ind]
+        #     if ind-2>=0: pick+=dp[ind-2]
+        #     notpick = dp[ind-1]
+        #     dp[ind] =  max(pick, notpick)
+    
+        # return dp[n-1]
+        
+        prev1 = arr[0]
+        prev2 = 0
+
         for ind in range(1,n):
             pick = arr[ind]
-            if ind-2>=0: pick+=dp[ind-2]
-            notpick = dp[ind-1]
-            dp[ind] =  max(pick, notpick)
+            if ind-2>=0: pick+=prev2
+            notpick = prev1
+            prev2 = prev1
+            prev1 =  max(pick, notpick)
     
-        return dp[n-1]
+        return prev1
 
 #{ 
  # Driver Code Starts
