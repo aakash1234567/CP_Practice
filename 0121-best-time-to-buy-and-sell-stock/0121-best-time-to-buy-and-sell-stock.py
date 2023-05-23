@@ -8,11 +8,11 @@ class Solution:
         #             p = prices[j]-prices[i]
         # return p
         
-        p = 0
+        profit = 0
         n = len(prices)
         mn = prices[0]
-        for i in range(1,n):
-            c = prices[i]-mn
-            p = max(c, p)
+        for i in range(1, n):
+            cost = prices[i]-mn
+            profit = max(cost, profit)
             mn = min(mn, prices[i])
-        return p
+        return profit
