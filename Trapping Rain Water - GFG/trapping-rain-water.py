@@ -14,22 +14,40 @@ class Solution:
         #     ans+=max(0, min(max_r, max_l)-arr[i])
         # return ans
         
-        left = [0 for i in range(n)]
-        right = [0 for i in range(n)]
-        last = 0
-        for i in range(n-1, -1 ,-1):
-            right[i] = last
-            last = max(last, arr[i])
-        last = 0
-        for i in range(n):
-            left[i] = last
-            last = max(last, arr[i])
+        # left = [0 for i in range(n)]
+        # right = [0 for i in range(n)]
+        # last = 0
+        # for i in range(n-1, -1 ,-1):
+        #     right[i] = last
+        #     last = max(last, arr[i])
+        # last = 0
+        # for i in range(n):
+        #     left[i] = last
+        #     last = max(last, arr[i])
+        # ans = 0
+        # for i in range(n):
+        #     ans+=max(0, min(left[i], right[i])-arr[i])
+        # return ans
+        
+        left = 0
+        right = n-1
+        left_max = 0
+        right_max = 0
         ans = 0
-        for i in range(n):
-            ans+=max(0, min(left[i], right[i])-arr[i])
+        while left<right:
+            if arr[left]<=arr[right]:
+                if arr[left]>left_max:
+                    left_max = arr[left]
+                else:
+                    ans+=left_max-arr[left]
+                left+=1
+            else:
+                if arr[right]>right_max:
+                    right_max = arr[right]
+                else:
+                    ans+=right_max-arr[right]
+                right-=1
         return ans
-        
-        
         
 #{ 
  # Driver Code Starts
